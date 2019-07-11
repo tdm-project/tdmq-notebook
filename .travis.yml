@@ -15,7 +15,7 @@ script:
 
 deploy:
   - provider: script
-    script: bash .travis/push.sh
+    script: bash push.sh
     on:
       repo: tdm-project/tdmq-notebook
       branch: master
