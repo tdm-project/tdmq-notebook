@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 GIT_REV := 6c3390a9292e8475d18026eb60f8d712b5b901db
 HADOOP_CLIENT_IMAGE := crs4/hadoopclient:3.2.0
+IMAGE ?= tdmproject/tdmq-notebook
 
 images:
 	if [[ ! -d docker-stacks ]]; then git clone https://github.com/jupyter/docker-stacks.git; fi
