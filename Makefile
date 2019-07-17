@@ -8,7 +8,7 @@ images:
 	cd docker-stacks;	git checkout ${GIT_REV}
 	cd docker-stacks/base-notebook/; docker build -t tdmproject/base-notebook --build-arg BASE_CONTAINER=${HADOOP_CLIENT_IMAGE} .
 	cd docker-stacks/minimal-notebook/; docker build -t tdmproject/minimal-notebook --build-arg BASE_CONTAINER=tdmproject/base-notebook .
-	cd docker; docker build  -t ${IMAGE}:$$(cat ../VERSION) --build-arg HADOOP_CLASSPATH=$$(docker run --rm --entrypoint "" ${HADOOP_CLIENT_IMAGE} /opt/hadoop/bin/hadoop classpath --glob) .
+	cd docker; docker build -t ${IMAGE} --build-arg HADOOP_CLASSPATH=$$(docker run --rm --entrypoint "" ${HADOOP_CLIENT_IMAGE} /opt/hadoop/bin/hadoop classpath --glob) .
 
 clean:
 	rm -rf docker-stacks
