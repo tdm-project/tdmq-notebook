@@ -25,4 +25,5 @@ services:
     container_name: tdmq-notebook
     environment:
       - NAMENODE_HOSTNAME=namenode
-
+    volumes:
+      - ".travis/quickstart_dense.py:/quickstart_dense.py"
