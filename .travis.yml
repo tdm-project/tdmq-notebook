@@ -9,8 +9,8 @@ install:
   - make images
 
 script:
-  - docker run -it --rm $IMAGE bash -l -c "python3 -c 'import tiledb'"
-  - docker run -it --rm $IMAGE bash -l -c "hdfs --help"
+  - docker run -it --rm $IMAGE:$(cat VERSION) bash -l -c "python3 -c 'import tiledb'"
+  - docker run -it --rm $IMAGE:$(cat VERSION) bash -l -c "hdfs --help"
 
 
 deploy:
