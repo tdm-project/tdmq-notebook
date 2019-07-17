@@ -9,3 +9,4 @@ RUN chown $NB_USER:$NB_GID -R $HADOOP_HOME/etc/hadoop && \
     pip install tiledb
 USER $USER
 ENTRYPOINT ["/entrypoint.sh", "tini", "-g", "--"]
+CMD ["start-notebook.sh"]
