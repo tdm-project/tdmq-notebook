@@ -14,6 +14,7 @@ script:
   - docker exec datanode bash -c 'until datanode_cid; do sleep 0.1; done'
   - docker exec namenode bash -c "hdfs dfs -mkdir /tiledb"
   - docker exec namenode bash -c "hdfs dfs -chmod a+wr /tiledb"
+  - docker exec tdmq-notebook bash -c "sed -i s/localhost/namenode/ /opt/hadoop/etc/hadoop/core-site.xml"
   - docker exec tdmq-notebook bash -c "python /quickstart_dense.py -f hdfs://namenode:8020/tiledb"
 
 
