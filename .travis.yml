@@ -16,6 +16,7 @@ script:
   - docker exec namenode bash -c "hdfs dfs -chmod a+wr /tiledb"
   - docker exec tdmq-notebook bash -c "sed -i s/localhost/namenode/ /opt/hadoop/etc/hadoop/core-site.xml"
   - docker exec tdmq-notebook bash -c "python /quickstart_dense.py -f hdfs://namenode:8020/tiledb"
+  - docker exec tdmq-notebook bash -c "python -c 'import tdmq, matplotlib'"
 
 
 deploy:
